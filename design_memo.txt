@@ -1,0 +1,12 @@
+A data tree is appropriate for the doctor structure because it can more accurately depict the hierarchy of 
+doctors than any other type of data structure that one might use, in addition to a data tree’s ability to be 
+presented using different methods of traversal. A software developer might prefer to use the preorder method 
+of traversal when they care most about the top root of the data tree going down, like in a family tree. 
+Alternatively, a software developer might prefer to use the inorder method of traversal when they want the 
+entire data tree sorted from left to right, like in math expressions. However, a software developer might 
+prefer to use the postorder method of traversal when they want the bottom leaves of the data tree going up, 
+like the family tree example from earlier but reversed. Data heaps help simulate real-time systems like 
+emergency intake by assigning priority values to each item. All of the items in the data heap are also put 
+into a list based on their assigned priority values, as well as where they are in the data heap. This allows 
+for important actions such as very quickly finding the highest priority item, or reorganizing the data heap 
+automatically when removing an item.

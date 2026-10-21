@@ -1,10 +1,57 @@
 class Patient:
-    pass # Delete this line and implement the Patient class
+    def __init__(self,name,urgency):
+        self.name=name
+        self.urgency=urgency
 
 
 
 class MinHeap:
-    pass # Delete this line and implement the MinHeap class
+    def __init__(self):
+        self.data=[]
+
+    def heapify_up(self,index):
+        while index>0:
+            parent_index=(index-1)//2
+            current_patient=self.data[index]
+            parent_patient=self.data[parent_index]
+            if current_patient.urgency<parent_patient.urgency:
+                temp=self.data[index]
+                self.data[index]=self.data[parent_index]
+                self.data[parent_index]=temp
+                index=parent_index
+            else:
+                break
+    def heapify_down(self,index):
+        left=2*index+1
+        right=2*index+2
+        smallest=index
+        if left<len(self.data) and self.data[left].urgency<self.data[smallest].urgency:
+            smallest=left
+        if right<len(self.data) and self.data[right].urgency<self.data[smallest].urgency:
+            smallest=right
+        if smallest!=index:
+            temp=self.data[index]
+            self.data[index]=self.data[smallest]
+            self.data[smallest]=temp
+            self.heapify_down(smallest)
+    def insert(self,patient):
+        self.data.append(patient)
+        self.heapify_up(len(self.data)-1)
+    def print_heap(self):
+        print("\nCurrent Patients")
+        for patient in self.data:
+            print(f"-{patient.name} (Urgency: {patient.urgency})")
+    def peek(self):
+        print(f"-{self.data[0].name} (Urgency: {self.data[0].urgency})")
+    def remove_min(self):
+        if not self.data:
+            return None
+        if len(self.data)==1:
+            return self.data.pop()
+        min_value=self.data[0]
+        self.data[0]=self.data.pop()
+        self.heapify_down(0)
+        return min_value
 
 
 
